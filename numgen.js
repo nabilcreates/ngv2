@@ -1,51 +1,30 @@
-class NumGen{
-    constructor(length){
-        this.number = '';
-        this.length = length
-    }
+function NumGen(length) {
+    this.length = length;
 
-    generate(){
+    this.generate = function () {
 
-        for(var i = 0; i < this.length; i++){
-            this.number += Math.floor(Math.random() * 10)
+        let number = ''
+
+        for (var n = 0; n < this.length; n++) {
+            number += Math.floor(Math.random() * 10)
         }
 
-        console.log(`${this.number}`)
+        // this.number = number
 
-        return this.number
+        console.log(number)
+        return number
     }
 
-    generateAndFilter(options){
-
-        let number = this.generate(this.length)
-        
-        let {start,end,requirement} = options
-
-        this.start = start;
-        this.end = end;
-        this.requirement = requirement;
-
-        // consolelog [debug]
-        // console.log(this.number.slice(this.start,this.end))
-        // console.log(this.number.slice(this.start,this.end) == this.requirement)
-
-        if(number.slice(this.start,this.end) == this.requirement){
-            console.log(`Your number is ${this.number}`)
-        }else{
-            console.log('bad luck mate...')
-        }
+    this.filter = function (number, start, end, requirement) {
+        console.log(number.slice(start, end) == requirement)
     }
 }
 
 var newgen = new NumGen(8)
 
-// FIXME: Number is returning around 800 chars (8 from the length and 100 from the loop)
-for(var i = 0; i < 100; i++){
-    newgen.generateAndFilter({
-        start: 0,
-        end: 1,
-        requirement: 8,
-    })
+for (var i = 0; i < 100; i++) {
+    newgen.filter(newgen.generate(), 0, 1, 8)
 }
+
 // console.log(newgen.generate(true).length)
 // newgen.filter({start: 0, end: 1, requirement: 8})
