@@ -27,7 +27,6 @@ newgen.filter(options)
 -   options (object)
     -   number (A return value from .generate()) [return value]
     -   start: (Number where you want it to start 'searching') [integer]
-    -   end: (Number where you want it to end 'searching') [integer]
     -   requirement: (Requirement that needs to be met) [integer]
     -   errors: (true will console.log numbers that don't match) [boolean]
 
