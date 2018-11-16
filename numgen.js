@@ -1,5 +1,9 @@
-function NumGen(length) {
+function NumGen(options) {
+
+    let {length,output=false} = options
+    
     this.length = length;
+    this.output = output;
 
     this.generate = function () {
 
@@ -11,7 +15,9 @@ function NumGen(length) {
 
         // this.number = number
 
-        console.log(number)
+        if(output){
+            console.log(number)
+        }
         return number
     }
 
@@ -20,7 +26,10 @@ function NumGen(length) {
     }
 }
 
-var newgen = new NumGen(8)
+var newgen = new NumGen({
+    length: 8,
+    output: false,
+})
 
 for (var i = 0; i < 100; i++) {
     newgen.filter(newgen.generate(), 0, 1, 8)
