@@ -1,11 +1,7 @@
-function NumGen(options) {
-
-    let {length,output=false} = options
-    
-    this.length = length;
-    this.output = output;
-
-    this.generate = function () {
+function NumGen() {
+    this.generate = function (length) {
+        
+        this.length = length;
 
         let number = ''
 
@@ -13,26 +9,25 @@ function NumGen(options) {
             number += Math.floor(Math.random() * 10)
         }
 
-        // this.number = number
-
-        if(output){
-            console.log(number)
-        }
         return number
     }
 
     this.filter = function (number, start, end, requirement) {
-        console.log(number.slice(start, end) == requirement)
+
+        // console.log(number.slice(start, end) == requirement)
+
+        if(number.slice(start, end) == requirement){
+            console.log(`${number}`)
+        }
     }
+
 }
 
-var newgen = new NumGen({
-    length: 8,
-    output: false,
-})
 
-for (var i = 0; i < 100; i++) {
-    newgen.filter(newgen.generate(), 0, 1, 8)
+let newgen = new NumGen()
+
+for (var i = 0; i < 100000; i++) {
+    newgen.filter(newgen.generate(8), 0, 2, 84)
 }
 
 // console.log(newgen.generate(true).length)
