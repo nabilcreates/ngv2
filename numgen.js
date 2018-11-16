@@ -1,6 +1,6 @@
 function NumGen() {
     this.generate = function (length) {
-        
+
         this.length = length;
 
         let number = ''
@@ -12,12 +12,26 @@ function NumGen() {
         return number
     }
 
-    this.filter = function (number, start, end, requirement) {
+    this.filter = function (obj) {
+
+        let {
+            number,
+            start,
+            end,
+            requirement,
+            errors=false
+        } = obj
 
         // console.log(number.slice(start, end) == requirement)
 
-        if(number.slice(start, end) == requirement){
+        if (number.slice(start, end) == requirement) {
             console.log(`${number}`)
+        }
+
+        if(errors){
+            if (number.slice(start, end) !== requirement) {
+                console.log(`No Match (${number})`)
+            }
         }
     }
 
@@ -27,8 +41,11 @@ function NumGen() {
 let newgen = new NumGen()
 
 for (var i = 0; i < 100000; i++) {
-    newgen.filter(newgen.generate(8), 0, 2, 84)
+    newgen.filter({
+        number: newgen.generate(8),
+        start: 0,
+        end: 2,
+        requirement: 84,
+        errors: true
+    })
 }
-
-// console.log(newgen.generate(true).length)
-// newgen.filter({start: 0, end: 1, requirement: 8})
