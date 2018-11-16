@@ -49,14 +49,14 @@ function NumGen() {
 
 
 // DEMO:
-// let newgen = new NumGen()
+let newgen = new NumGen()
 
-// for (var i = 0; i < 100000; i++) {
-//     newgen.filter({
-//         number: newgen.generate(8),
-//         start: 0,
-//         end: 2,
-//         requirement: 84,
-//         errors: true
-//     })
-// }
+for (var i = 0; i < 100000; i++) {
+    newgen.filter({
+        number: newgen.generate(8),
+        start: 0,
+        end: 2,
+        requirement: 84,
+        errors: false
+    })
+}
