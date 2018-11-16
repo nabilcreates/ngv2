@@ -51,13 +51,13 @@ function NumGen() {
 
 
 // DEMO:
-let newgen = new NumGen()
+// let newgen = new NumGen()
 
-for (var i = 0; i < 100000; i++) {
-    newgen.filter({
-        number: newgen.generate(8),
-        start: 0,
-        requirement: 84,
-        errors: false
-    })
-}
+// for (var i = 0; i < 10000000; i++) {
+//     newgen.filter({
+//         number: newgen.generate(8),
+//         start: 0,
+//         requirement: 84680094,
+//         errors: false
+//     })
+// }
