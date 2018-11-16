@@ -25,19 +25,21 @@ function NumGen() {
         let {
             number,
             start,
-            end,
             requirement,
             errors=false
         } = obj
-
-        // console.log(number.slice(start, end) == requirement)
+        
+        // convert to string and then find the length (that will be the end)
+        let end = requirement.toString().length;
+        
+        // console.log(requirement.toString().length)
 
         // console.log the only ones that match the requirement
         if (number.slice(start, end) == requirement) {
             console.log(`${number}`)
         }
 
-        // but if errors is set to true (from the obj argument) then it will console log No Match followed by the number (wont console log if errors is set to false)
+        // // but if errors is set to true (from the obj argument) then it will console log No Match followed by the number (wont console log if errors is set to false)
         if(errors){
             if (number.slice(start, end) !== requirement) {
                 console.log(`No Match (${number})`)
@@ -55,7 +57,6 @@ for (var i = 0; i < 100000; i++) {
     newgen.filter({
         number: newgen.generate(8),
         start: 0,
-        end: 2,
         requirement: 84,
         errors: false
     })
